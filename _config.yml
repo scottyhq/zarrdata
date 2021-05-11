@@ -1,1 +1,5 @@
-include: [air_temperature.zarr/*]
+include: 
+ - air_temperature.zarr
+ - .zattrs
+ - .zgroup
+ - .zmetadata
