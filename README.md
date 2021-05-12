@@ -8,10 +8,10 @@ The basic idea is to host a small amount of data on a static GitHub pages websit
 ## Configuration steps
 
 1. Add zarr data
-In the [create_zarr.py](./create_zarr.py) script I just create a Zarr store from the Xarray tutorial dataset, but if you have data.zarr you just add it to your repo
+In the [create_zarr.py](https://github.com/scottyhq/zarrdata/blob/main/create_zarr.py) script I just create a Zarr store from the Xarray tutorial dataset, but if you have data.zarr you just add it to your repo
 
 1. Add a jekyll configuration file
-GitHub pages automatically deploys your repository and serves static HTTP via Jekyll. Because Jekyll ignores hidden files (.zattrs, .zmetadata, etc) by defauly you need a [_config.yml](./_config_yml) to ensure those files are added
+GitHub pages automatically deploys your repository and serves static HTTP via Jekyll. Because Jekyll ignores hidden files (.zattrs, .zmetadata, etc) by default you need a [_config.yml](https://github.com/scottyhq/zarrdata/blob/main/_config.yml) to ensure those files are added
 
 1. Enable github pages
 To publish the site you just need to enable [GitHub Pages](https://guides.github.com/features/pages/) for the repository. It's as simple as going to repository Settings->Pages->Source (select 'main' branch and 'Save')! The you'll have a live HTTP-website with the repo README.md rendered! For this repo https://github.com/scottyhq/zarrdata the website is https://scottyhq.github.io/zarrdata . 
@@ -24,3 +24,6 @@ uri = 'https://scottyhq.github.io/zarrdata/air_temperature.zarr'
 ds = xr.open_dataset(uri, engine="zarr", consolidated=True)
 ds.air.isel(time=1).plot(x="lon")
 ```
+
+![Unknown](https://user-images.githubusercontent.com/3924836/117900937-a0e15200-b30d-11eb-9802-f542cc57efcc.png)
+
