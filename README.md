@@ -1,4 +1,6 @@
 # zarrdata
+[![DOI](https://zenodo.org/badge/366521090.svg)](https://zenodo.org/badge/latestdoi/366521090)
+
 A convenient way to store a publically-accessible [Zarr](https://zarr.readthedocs.io/en/stable/) dataset that is versioned and optionally tied to a [Zenodo DOI](https://guides.github.com/activities/citable-code/):
 
 ```python
