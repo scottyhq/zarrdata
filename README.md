@@ -13,9 +13,9 @@ ds.air.isel(time=1).plot(x="lon")
 
 ![Unknown](https://user-images.githubusercontent.com/3924836/117900937-a0e15200-b30d-11eb-9802-f542cc57efcc.png)
 
-The basic idea is to host a small amount of data on a static GitHub pages website so that your tutorial, research code, benchmarking suite, etc. can run against a citeable dataset.
+The basic idea is to host a smallish citeable record (<1GB) on a static GitHub pages website so that your tutorial, research code, benchmarking suite, etc. can run against a citeable dataset.
 
-*A key limitation of this approach is that Zarr chunks must be less than 100MB*, per [GitHub repository limits](https://docs.github.com/en/github/managing-large-files/what-is-my-disk-quota#file-and-repository-size-limitations). The goal here is a smallish citeable record (<10GB), if you're dealing with really large data or want high-performance you probably want to store the data on AWS S3, GCS, etc...
+*Key limitation of this approach is that Zarr chunks must be less than 100MB, per [GitHub repository limits](https://docs.github.com/en/github/managing-large-files/what-is-my-disk-quota#file-and-repository-size-limitations) and the total size of the repo/zarr store should be less than 1GB per [GitHub Pages limits](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages#usage-limits)*. If you're dealing with data>1GB or want high-performance you probably want to store the data files on AWS S3, GCS, etc...
 
 ## Configuration steps
 
