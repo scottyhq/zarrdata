@@ -1,5 +1,15 @@
 # zarrdata
-A convenient way to store a publically-accessible [Zarr](https://zarr.readthedocs.io/en/stable/) dataset that is versioned and optionally tied to a [Zenodo DOI](https://guides.github.com/activities/citable-code/). 
+A convenient way to store a publically-accessible [Zarr](https://zarr.readthedocs.io/en/stable/) dataset that is versioned and optionally tied to a [Zenodo DOI](https://guides.github.com/activities/citable-code/):
+
+```python
+import xarray as xr
+import fsspec
+uri = 'https://scottyhq.github.io/zarrdata/air_temperature.zarr'
+ds = xr.open_dataset(uri, engine="zarr", consolidated=True)
+ds.air.isel(time=1).plot(x="lon")
+```
+
+![Unknown](https://user-images.githubusercontent.com/3924836/117900937-a0e15200-b30d-11eb-9802-f542cc57efcc.png)
 
 The basic idea is to host a small amount of data on a static GitHub pages website so that your tutorial, research code, benchmarking suite, etc. can run against a citeable dataset.
 
@@ -15,15 +25,3 @@ GitHub pages automatically deploys your repository and serves static HTTP via Je
 
 1. Enable github pages
 To publish the site you just need to enable [GitHub Pages](https://guides.github.com/features/pages/) for the repository. It's as simple as going to repository Settings->Pages->Source (select 'main' branch and 'Save')! The you'll have a live HTTP-website with the repo README.md rendered! For this repo https://github.com/scottyhq/zarrdata the website is https://scottyhq.github.io/zarrdata . 
-
-1. Read your data!
-```python
-import xarray as xr
-import fsspec
-uri = 'https://scottyhq.github.io/zarrdata/air_temperature.zarr'
-ds = xr.open_dataset(uri, engine="zarr", consolidated=True)
-ds.air.isel(time=1).plot(x="lon")
-```
-
-![Unknown](https://user-images.githubusercontent.com/3924836/117900937-a0e15200-b30d-11eb-9802-f542cc57efcc.png)
-
